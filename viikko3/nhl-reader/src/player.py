@@ -8,21 +8,6 @@ class Player:
         self.penalties = penalties
         self.games = games
         self.score = self.goals + self.assists
-        self.format_string()
-    
-    def format_string(self):
-        self.player_string = self.name + (20-len(self.name)) * " "
-        self.player_string += self.team + " "
-        if self.goals < 10:
-            self.player_string += " "
-        self.player_string += str(self.goals) + " + "
-        if self.assists < 10:
-            self.player_string += " "
-        self.player_string += str(self.assists)
-        self.player_string += " = "
-        if self.score < 10:
-            self.player_string += " "
-        self.player_string += str(self.score)
 
     def __str__(self):
-        return self.player_string
+        return f"{self.name:20} {self.team} {self.goals:2} + {self.assists:2} = {self.score:2}"
